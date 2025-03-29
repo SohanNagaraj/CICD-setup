@@ -1,14 +1,14 @@
 pipeline {
     agent any
     environment {
-        AWS_ACCESS_KEY_ID     = credentials('aws-access-key-id')
-        AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
+        AWS_ACCESS_KEY_ID     = AKIAZWNNRRYFWLF6RC6Y 
+        AWS_SECRET_ACCESS_KEY = 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
         AWS_DEFAULT_REGION    = 'us-east-1'
     }
     stages {
         stage('Scanning Stage') {
             agent {
-                label 'SonarQube' // Runs on the SonarQube agent
+                label 'SonarQube' // Runs on the SonarQube agent,credentials('aws-access-key-id'),credentials('aws-secret-access-key')
             }
             steps {
              withSonarQubeEnv('sonardemo') { 
